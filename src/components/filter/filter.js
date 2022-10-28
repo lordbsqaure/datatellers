@@ -143,6 +143,7 @@ function Filter({users}) {
           }
            
         } >
+        <option selected="selected" disabled='disabled'>status</option>
         <option > Missed < /option>
         <option > passed < /option>
         <option > Rescheduled < /option> 
