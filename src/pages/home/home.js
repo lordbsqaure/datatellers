@@ -99,11 +99,9 @@ const missed=users.filter((datas)=>{
         number = {Rescheduled.length}
         ncolor = "orange "
         bcolor = "rgb(243, 222, 154)" / >
-        <
-        /div>  <
+        < /div>  <
         div className = 'col-3' >
-        <
-        Sumcard status ={ "Passed"}
+        <Sumcard status ={ "Passed"}
         number = {passed.length}
         ncolor = "green "
         bcolor = " rgb(207, 221, 204)" / > <

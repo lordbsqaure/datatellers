@@ -42,3 +42,47 @@ Before we get started, keep in mind:
 [info] will contain Hosting assets to be uploaded with firebase deploy. If you
 [info] have a build process for your assets, use your build's output directory.
 [info] 
+[debug] [2022-10-28T17:53:24.360Z] ----------------------------------------------------------------------
+[debug] [2022-10-28T17:53:24.363Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init hosting
+[debug] [2022-10-28T17:53:24.363Z] CLI Version:   11.15.0
+[debug] [2022-10-28T17:53:24.363Z] Platform:      linux
+[debug] [2022-10-28T17:53:24.364Z] Node Version:  v14.18.1
+[debug] [2022-10-28T17:53:24.364Z] Time:          Fri Oct 28 2022 18:53:24 GMT+0100 (West Africa Standard Time)
+[debug] [2022-10-28T17:53:24.364Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-10-28T17:53:24.443Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-28T17:53:24.444Z] > authorizing via signed-in user (tse2ndi@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/lord-b/Desktop/Brandon/work/react/datatellers/datatellers
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-10-28T17:53:24.450Z] Using project from CLI flag: datatellers-1fe83
+[debug] [2022-10-28T17:53:24.454Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/datatellers-1fe83 [none]
+[debug] [2022-10-28T17:53:25.507Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/datatellers-1fe83 200
+[debug] [2022-10-28T17:53:25.507Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/datatellers-1fe83 {"projectId":"datatellers-1fe83","projectNumber":"266776202618","displayName":"datatellers","name":"projects/datatellers-1fe83","resources":{"hostingSite":"datatellers-1fe83","storageBucket":"datatellers-1fe83.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_fbc8f479-71da-457d-ae68-482d33690eee"}
+[info] i  Using project datatellers-1fe83 (datatellers) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
