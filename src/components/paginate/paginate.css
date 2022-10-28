@@ -1,0 +1,42 @@
+.paginate {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    gap: 5px;
+    background-color: aliceblue;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.centralize {
+    justify-content: center;
+    align-items: center;
+}
+
+.paginate .pagess {
+    text-decoration: none;
+    list-style: none;
+    padding: 0px 8px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 400;
+    color: #000;
+}
+
+.write {
+    color: #000;
+    text-decoration: none;
+}
+
+.pad {
+    padding: 8px 12px 8px 12px;
+    margin-left: 10px;
+}
+
+.active {
+    background-color: rgb(97, 100, 46);
+}

@@ -1,0 +1,15 @@
+.onecard {
+    width: 20rem;
+    height: 6rem;
+    border-radius: 5px 12px 0 12px;
+    margin: 20px;
+}
+
+.status {
+    padding: 6px 0px 0px 10px;
+}
+
+.number {
+    padding: 13px 0px 0px 10px;
+    font-size: 1.5rem;
+}

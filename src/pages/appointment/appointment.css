@@ -1,0 +1,60 @@
+.background {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgb(209, 198, 184);
+}
+
+.full {
+    margin: 5px 0 35px 5px;
+    position: relative;
+    height: 35px;
+    background-color: rgba(49, 13, 2, 0.856);
+    border-radius: 0 0 0 8px;
+}
+
+.stylecolor {
+    display: flex;
+    width: 70%;
+    height: 100%;
+    border-radius: 0 0px 50px 8px;
+    background-color: rgb(35, 102, 102);
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    padding-left: 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.wall {}
+
+.line {
+    color: rgb(167, 44, 44);
+}
+
+.coloring {
+    color: black
+}
+
+.gen {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.record {
+    font-weight: bold;
+}
+
+.line {
+    padding-top: 10px;
+    padding-left: 4%;
+    color: black;
+}
+
+.color {
+    background-color: aqua;
+}
+
+.colors {
+    background-color: black;
+}

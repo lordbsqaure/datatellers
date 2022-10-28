@@ -1,0 +1,17 @@
+.show {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.black {
+    background-color: rgb(15, 13, 13);
+}
+
+.result {
+    border-radius: 8px;
+    max-width: fit-content;
+}
+
+.test {
+    background-color: rgb(245, 186, 245);
+}
