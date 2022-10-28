@@ -106,10 +106,10 @@ const missed=users.filter((datas)=>{
         ncolor = "green "
         bcolor = " rgb(207, 221, 204)" / > <
         /div> 
-        <div className = "col" > < /div>  
+        <div className = "col" >
+            < /div>  
 
-        <
-        /div> 
+        <  /div> 
 
 
 <div className="row">
