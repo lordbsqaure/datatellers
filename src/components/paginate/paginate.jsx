@@ -1,6 +1,5 @@
 import './paginate.css'
 import Detail from '../detail/detail'
-import Filter from '../filter/filter'
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
@@ -41,7 +40,7 @@ import ReactPaginate from 'react-paginate';
         
 
         {
-            currentItems  .map((person) => ( 
+            currentItems.map((person) => ( 
                 <>
                 
                <Link  to="/appointment/:code" className='write'> <div className = "row " > 

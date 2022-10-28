@@ -41,37 +41,37 @@ if(!newemail.match(mailformat))
 alert("not a Valid email address!");
 return ;
 }
-        if(newname==""){
+        if(newname===""){
            
             alert('please enter name')
             return
         }
-        else if(newage==0){
+        else if(newage===0){
            
             alert('please enter age')
             return
         }
-        else if(newphone==0){
+        else if(newphone===0){
            
             alert('please enter phone number')
             return
         }
-        else if(newemail==""){
+        else if(newemail===""){
            
             alert('please enter email')
             return
         }
-        else if(newappointment==""){
+        else if(newappointment===""){
            
             alert('please enter appointment date')
             return
         }
-        else if(newaddress==""){
+        else if(newaddress===""){
            
             alert('please enter address')
             return
         }
-        else if(newcity==""){
+        else if(newcity===""){
            
             alert('please enter city')
             return
@@ -79,7 +79,7 @@ return ;
        
 
     
-        if(newfirsttime=="Yes"){
+        if(newfirsttime==="Yes"){
             let  at=newappointment.replace("-","");
             if(users.length<10){
              

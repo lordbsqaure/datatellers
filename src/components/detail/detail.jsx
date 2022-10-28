@@ -5,11 +5,11 @@ import React from 'react';
 function Detail({ person }) {
     let color;
     let background;
-    if(person.status=="missed"){
+    if(person.status==="missed"){
         color="red";background="rgb(245, 208, 201)"
-    }else if(person.status=="rescheduled"){ color="orange";background="rgb(247, 237, 147)"}
-    else if(person.status=="passed"){ color="green";background="rgb(196, 248, 207)"}
-    else if(person.status=="pending"){ color="purple";background="rgb(245, 186, 245)"}
+    }else if(person.status==="rescheduled"){ color="orange";background="rgb(247, 237, 147)"}
+    else if(person.status==="passed"){ color="green";background="rgb(196, 248, 207)"}
+    else if(person.status==="pending"){ color="purple";background="rgb(245, 186, 245)"}
     return ( 
         <>
         { console.log() } 

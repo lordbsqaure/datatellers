@@ -38,7 +38,9 @@ const missed=users.filter((datas)=>{
     if(datas.status.toLowerCase().includes("missed")){
             
       return datas;
+
     }
+    return
   })
   const Rescheduled=users.filter((datas)=>{
       
