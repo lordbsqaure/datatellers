@@ -13,7 +13,7 @@ function App() {
         exact element = { < Home / > }/> 
          <Route exact path = '/appointment'
         exact element = { < Appointment / > }/>
-        <Route exact path = '/appointment/:code'
+        <Route exact path = '/appointment/:id'
         exact element = { < Appointment / > }/>
         </Routes >
         </Router>

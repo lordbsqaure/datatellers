@@ -43,7 +43,7 @@ import ReactPaginate from 'react-paginate';
             currentItems.map((person) => ( 
                 <>
                 
-               <Link  to="/appointment/:code" className='write'> <div className = "row " > 
+               <Link  to={"/appointment/"+ person.id} className='write'> <div className = "row " > 
                 <div className = "col " > < /div>
                  <div className = "col-12  mb-2 write " >
                 <Detail key={person.id} person = { person}/ >

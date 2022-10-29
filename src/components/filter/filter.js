@@ -19,10 +19,10 @@ function Filter({users}) {
     
     return ( <
         >
-        <div className = 'container-fluid  p-0 m-0    ' >
-        <div className = 'row p-2 ' >
+     
+        <div className = 'row py-2 ' >
         
-        <div className = 'col-3  p-1' > 
+        <div className = 'col-3  ' > 
         <div className = "input-group" ><input type = "text"
         placeholder = 'name'
         className = 'form-control m-0 ' 
@@ -48,7 +48,24 @@ function Filter({users}) {
         <div className = 'col-1 ' > 
         <div className = "input-group" >< input type = "text"
         placeholder = 'code'
-        className = 'form-control ' / >
+        className = 'form-control '
+        onChange = {
+          (event) => {
+              
+           const someone=users.filter((data)=>{
+            
+            if(data.code.toLowerCase().includes(event.target.value.toLowerCase())){
+              console.log(event)
+              console.log("event")
+              return data;
+            }
+          })
+      setpersons(someone);
+          console.log(persons)
+          
+        }
+         
+      }/ >
         <button className="btn btn-outline-secondary bg-white border-start-0 border searches ms-n3"><span className="form-control-feedback blackcolor"><FaSort/> </span></button>
 
         </div> </div>
@@ -152,7 +169,7 @@ function Filter({users}) {
         </select >
         < /div >
          < /div > 
-         </div>
+       
 
          <Paginate users={persons} />
       

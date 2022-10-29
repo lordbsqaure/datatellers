@@ -5,12 +5,13 @@ import { React, useState, useEffect } from "react";
 import { db } from "../../firebase-config";
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 import { FaBeer,FaArrowLeft } from 'react-icons/fa';
-import { Link ,Route, Routes} from 'react-router-dom';
+import { Link ,Route, Routes,useParams} from 'react-router-dom';
 
 
 
 
 function Appointment() {
+    const params=useParams();
     const [newname, setnewname] = useState("");
     const [newage, setnewage] = useState(0);
     const [newnsex, setnewsex] = useState("male");
@@ -19,6 +20,7 @@ function Appointment() {
     const [newcity, setnewcity] = useState("");
     const [newaddress, setnewaddress] = useState("");
     const [newstatus, setnewstatus] = useState("pending");
+    const [code, setnewcode] = useState("pending");
     let newcode ;
     const [newappointment, setnewappointment] = useState("");
     const [newbefore, setnewbefore] = useState("");
@@ -26,10 +28,53 @@ function Appointment() {
     const [newfirsttime, setnewfirsttime] = useState("no");
     const [newrequest, setnewrequest] = useState("");
     const [newtime, setnewtime] = useState("");
-    const [users,setusers]=  useState([]);
+    const [users,setusers]=  useState([])
+    const [ newindividual, setnewindividual]=  useState([]);
     const [home,sethome]=  useState(false);
+    const userscollection = collection(db, "users");
+
+    useEffect(()=>{
 
 
+        const getusers= async()=>{
+
+            const data= await getDocs(userscollection);
+        
+
+            setusers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+            const someone=users.filter((data)=>{
+              
+                if(data.id==params.id){
+                    document.getElementById('code').value=data.code
+                    document.getElementById('name').value=data.name
+                    document.getElementById('age').value=data.age
+                    // document.getElementById('sex').value=data.sex
+                    document.getElementById('phone').value=data.phone
+                    document.getElementById('email').value=data.email
+                    document.getElementById('appointment').value=data.appointment
+                    document.getElementById('firsttime').value=data.firsttime
+                    // document.getElementById('status').selected=data.status
+                    document.getElementById('time').value=data.time
+                    document.getElementById('address').value=data.address
+                    document.getElementById('city').value=data.city
+                    document.getElementById('before').value=data.before
+                    document.getElementById('after').value=data.after
+                 
+                  return data;
+                }
+              })
+              setnewindividual(someone);
+         
+             ;
+    
+        }
+        getusers();
+
+      
+  
+    
+    },[])
+   
 
    
 
@@ -88,14 +133,13 @@ return ;
                 newcode="A"+users.length+""+at.replace("-","");
             }
             
+            
+            }else{
+                if(code=="")return alert("enterc code");
+                newcode=code;
             }
             console.log(newcode)
-        const userscollection = collection(db, "users");
-        const data= await getDocs(userscollection);
-        
 
-        setusers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
-        const arr=users.length+1
   
     
         const result = {
@@ -162,17 +206,22 @@ return ;
         div className = "row" >
         <
         div className = "col" > < /div> <
-        div className = "col-1 from-control " > unique code: < input type = "text"
-        className = "form-control my-2" / >
+        div className = "col-1 from-control " > unique code: < input type = "text" id="code"
+        className = "form-control my-2"
+        onChange = {
+            (event) => { setnewcode(event.target.value) }
+        }
+        // value={params.id? users[0].code:""}
+        / >
         <
         /div>  <
-        div className = "col-2 " > Name < input type = "text"
+        div className = "col-2 " > Name < input type = "text" id="name"
         className = "form-control my-2"
         onChange = {
             (event) => { setnewname(event.target.value) }
         }
         / > < /div > <
-        div className = "col-1 " > Age < input type = "number"
+        div className = "col-1 " > Age < input type = "number" id="age"
         className = "form-control my-2"
         onChange = {
             (event) => { setnewage(event.target.value) }
@@ -180,7 +229,7 @@ return ;
         / > < /div >
 
         <
-        div className = "col-2 " > Sex < select className = "form-select my-2"
+        div className = "col-2 " > Sex < select className = "form-select my-2" id="sex"
         onChange = {
             (event) => { setnewsex(event.target.value) }
         } >
@@ -188,13 +237,13 @@ return ;
         option > Male < /option> <
         option > female < /option> < /
         select > < /div > <
-        div className = "col-2 " > Phone < input type = "number"
+        div className = "col-2 " > Phone < input type = "number" id="phone"
         className = "form-control my-2"
         onChange = {
             (event) => { setnewphone(event.target.value) }
         }
         / > < /div > <
-        div className = "col-3  px-5" > Email < input type = "email"
+        div className = "col-3  px-5" > Email < input type = "email" id="email"
         className = "form-control my-2 "
         onChange = {
             (event) => { setnewemail(event.target.value) }
@@ -220,23 +269,23 @@ return ;
         <
         div className = "col" > < /div> <
         div className = "col-2 from-control " > Appointment date < input type = "date"name="date" placeholder="DD-MM-YYYY" format="DD-MM-YYYY"
-        className = "form-control my-2" onChange = {
+        id="appointment"className = "form-control my-2" onChange = {
             (event) => { setnewappointment(event.target.value) }
         }/ >
         <
         /div>  <
-        div className = "col-2 " > First time < select className = "form-select my-2" onChange = {
+        div className = "col-2 " > First time < select className = "form-select my-2" id="firsttime" onChange = {
             (event) => { setnewfirsttime(event.target.value) }
         }> < option > No < /option> <
         option > Yes < / option > < /select > < /
         div > <
-        div className = "col-2 from-control " > request date < input type = "date"
+        div className = "col-2 from-control " > request date < input type = "date" id="request"
         className = "form-control my-2"  onChange = {
             (event) => { setnewrequest(event.target.value) }
         }/ >
         <
         /div><
-        div className = "col-3 " > Appointment status < select className = "form-select my-2"
+        div className = "col-3 " > Appointment status < select className = "form-select my-2" id="appointment"
         onChange = {
             (event) => { setnewstatus(event.target.value) }
         } >
@@ -247,7 +296,7 @@ return ;
         option > passed < / option >  < /
         select > < /
         div > <
-        div className = "col-2  " > Appointment time < input type = "time"
+        div className = "col-2  " > Appointment time < input type = "time" id="time"
         className = "form-control my-2 " 
         onChange = {
             (event) => { setnewtime(event.target.value) }
@@ -267,7 +316,7 @@ return ;
         div className = "row" >
         <
         div className = "col" > < /div> <
-        div className = "col-3 from-control " > Address 1 < input type = "text"
+        div className = "col-3 from-control " > Address 1 < input type = "text" id="address"
         className = "form-control my-2"
         onChange = {
             (event) => { setnewaddress(event.target.value) }
@@ -275,7 +324,7 @@ return ;
         / > < /
         div >
         <
-        div className = "col-2" > City < input type = "text"
+        div className = "col-2" > City < input type = "text" id="city"
         className = "form-control my-2"
         onChange = {
             (event) => { setnewcity(event.target.value) }
@@ -301,7 +350,7 @@ return ;
         <
         div className = "col" > < /div> <
         div className = "col-3 from-control " > Before Appointment<textarea 
-        className = "form-control my-2" rows="4" onChange = {
+        className = "form-control my-2" rows="4" id="before" onChange = {
             (event) => { setnewbefore(event.target.value) }
         }/ >
         <
@@ -309,7 +358,7 @@ return ;
         div >
         <
         div className = "col-2" > After Appointment < textarea type = "text"
-        className = "form-control my-2" rows="4"  onChange = {
+        className = "form-control my-2" rows="4"  id="after"  onChange = {
             (event) => { setnewafter(event.target.value) }
         }/ > < /div> <
         div className = "col-6" > < /div>  <

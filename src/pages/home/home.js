@@ -10,7 +10,9 @@ import Paginate from '../../components/paginate/paginate'
 
 
 function Home() {
-    const [users,setusers]=  useState([]);
+  const [users,setusers]=  useState([]);
+  const [persons,setpersons]= useState([]);
+ 
     // const [missed,setmissed]=  useState(0);
     // const [scheduled,setscheduled]=  useState(0);
     // const [passed,setpassed]=  useState(0);
@@ -23,13 +25,16 @@ useEffect(()=>{
 
         const data= await getDocs(userscollection);
 
-        setusers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+     setusers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+        setpersons(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
 
     }
     getusers();
     
+    
 
 },[])
+
 
 
         
@@ -80,7 +85,26 @@ const missed=users.filter((datas)=>{
         <div className = "input-group" >
         <input type = "text"
         className = "form-control"
-        placeholder = "Search" / ><button className="btn btn-outline-secondary bg-white border-start-0 border searches ms-n3"><span className="form-control-feedback searches"><FaSearch/> </span></button>
+        placeholder = "Search"
+        onChange = {
+          (event) => {
+              
+           const someone=users.filter((data)=>{
+            
+            if(data.name.toLowerCase().includes(event.target.value.toLowerCase())){
+              console.log(data)
+             
+              return data;
+            }
+          })
+          setpersons(someone);
+        
+          
+        }
+         
+      } 
+        
+        / ><button className="btn btn-outline-secondary bg-white border-start-0 border searches ms-n3" ><span className="form-control-feedback searches"><FaSearch/> </span></button>
         </div >
         < /div >
         <div className = "col" > < /div>
@@ -116,8 +140,8 @@ const missed=users.filter((datas)=>{
 
 <div className="row">
 <div className="col-1"></div>
-<div className="col-11">
-      < Filter users = { users }
+<div className="col-11 p-0 m-0 ">
+      < Filter users = { persons }
                 / ></div>
 </div>
 

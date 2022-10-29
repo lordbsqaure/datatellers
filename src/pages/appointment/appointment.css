@@ -13,7 +13,7 @@
     border-radius: 0 0 0 8px;
 }
 
-.stylecolor {
+.stylecolors {
     display: flex;
     width: 70%;
     height: 100%;
@@ -28,7 +28,7 @@
 
 .wall {}
 
-.line {
+.dash {
     color: rgb(167, 44, 44);
 }
 
