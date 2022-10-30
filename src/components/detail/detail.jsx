@@ -15,10 +15,14 @@ function Detail({ person }) {
         { console.log() } 
         <div className = 'container-fluid p-0 m-0  ' >
         <div className = 'row show p-2    ' >
-        <div className = 'col-3' > { person.name } < /div> 
-         <div className = 'col-2' > {person.code} < /div>  <
-        div className = 'col-5' > {person.age} < /div>  <
-        div className = 'col-2' > < div className = 'result px-3' style = {
+        <div className = 'col-2' > { person.name } < /div> 
+         <div className = 'col-2' > {person.code} < /div> 
+         <div className = 'col-1' > {person.age} < /div> 
+         <div className = 'col-2' > {person.address} < /div> 
+         <div className = 'col-1' > {person.phone} < /div> 
+         <div className = 'col-2' > {person.email} < /div> 
+        
+         <div className = 'col-2' > < div className = 'result px-3' style = {
            {color:color,background :background }
         }> {person.status} < /div>< /div > < /
         div >

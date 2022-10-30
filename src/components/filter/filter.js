@@ -22,8 +22,8 @@ function Filter({users}) {
      
         <div className = 'row py-2 ' >
         
-        <div className = 'col-3  ' > 
-        <div className = "input-group" ><input type = "text"
+        <div className = 'col-3 p-0 m-0 ' > 
+        <div className = "input-group " ><input type = "text"
         placeholder = 'name'
         className = 'form-control m-0 ' 
         onChange = {
@@ -69,7 +69,7 @@ function Filter({users}) {
         <button className="btn btn-outline-secondary bg-white border-start-0 border searches ms-n3"><span className="form-control-feedback blackcolor"><FaSort/> </span></button>
 
         </div> </div>
-        <div className = 'col-2 ' > < input type = "number"
+        <div className = 'col-2 ' > < input type = "number" min="0" max="100" multiple="true"
         placeholder = 'age'
         className = 'form-control '
                 onChange = {
@@ -77,7 +77,7 @@ function Filter({users}) {
                 
              const someone=users.filter((data)=>{
               
-              if(data.age==event.target.value ){
+              if(data.age<=event.target.value ){
         
                 return data;
                

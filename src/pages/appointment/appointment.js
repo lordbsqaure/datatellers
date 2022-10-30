@@ -14,7 +14,7 @@ function Appointment() {
     const params=useParams();
     const [newname, setnewname] = useState("");
     const [newage, setnewage] = useState(0);
-    const [newnsex, setnewsex] = useState("male");
+    const [newsex, setnewsex] = useState("male");
     const [newphone, setnewphone] = useState(0);
     const [newemail, setnewemail] = useState("");
     const [newcity, setnewcity] = useState("");
@@ -42,27 +42,42 @@ function Appointment() {
         
 
             setusers(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
-            const someone=users.filter((data)=>{
+            const someone=data.docs.map((doc)=>({...doc.data(),id:doc.id})).filter((data)=>{
               
                 if(data.id==params.id){
                     document.getElementById('code').value=data.code
                     document.getElementById('name').value=data.name
                     document.getElementById('age').value=data.age
-                    // document.getElementById('sex').value=data.sex
+                     document.getElementById('sex').value=data.sex
                     document.getElementById('phone').value=data.phone
                     document.getElementById('email').value=data.email
                     document.getElementById('appointment').value=data.appointment
                     document.getElementById('firsttime').value=data.firsttime
-                    // document.getElementById('status').selected=data.status
+                   //  document.getElementById('status').value=data.status
                     document.getElementById('time').value=data.time
                     document.getElementById('address').value=data.address
                     document.getElementById('city').value=data.city
                     document.getElementById('before').value=data.before
                     document.getElementById('after').value=data.after
+                    setnewcode(data.code)
+                    setnewname(data.name)
+                    setnewage(data.age)
+                    setnewsex(data.sex)
+                    setnewphone(data.phone)
+                    setnewemail(data.email)
+                    setnewappointment(data.appointment)
+                    setnewfirsttime(data.firsttime)
+                    setnewstatus(data.status)
+                    setnewaddress(data.address)
+                    setnewcity(data.city)
+                    setnewbefore(data.before)
+                    setnewafter(data.after)
+                    setnewcode(data.code)
                  
                   return data;
                 }
               })
+              console.log(someone)
               setnewindividual(someone);
          
              ;
@@ -125,17 +140,36 @@ return ;
 
     
         if(newfirsttime==="Yes"){
-            let  at=newappointment.replace("-","");
+            const arrays=newappointment.split("-")
+            console.log(arrays)
+         
             if(users.length<10){
              
-                newcode="A0"+users.length+""+at.replace("-","");
+                newcode="A0"+users.length+""+arrays[2]+""+arrays[1]+""+arrays[0];
             }else{
-                newcode="A"+users.length+""+at.replace("-","");
+                newcode="A"+users.length+""+arrays[2]+""+arrays[1]+""+arrays[0];
             }
             
             
             }else{
-                if(code=="")return alert("enterc code");
+                if(code==""){return alert("please enter your code");}
+                else{
+                    const someone=users.filter((data)=>{
+                        if(data.code==newcode ){
+                        if(data.email.toLowerCase()!==newemail ||data.name.toLowerCase()!==newname.toLocaleLowerCase ||data.sex.toLowerCase()!==newsex || data.age.toLowerCase()!==newage){
+                      console.log("hello")
+                         
+                          return false;
+                        }
+                      }
+                      })
+                      if(!someone){
+                        return  alert("check your email ,age,name and sex again")
+                      } 
+                      
+       
+                }
+               
                 newcode=code;
             }
             console.log(newcode)
@@ -145,7 +179,7 @@ return ;
         const result = {
             name: newname,
             age: newage,
-            sex: newnsex,
+            sex: newsex,
             phone:newphone,
             email:newemail,
             status:newstatus,
@@ -206,12 +240,13 @@ return ;
         div className = "row" >
         <
         div className = "col" > < /div> <
-        div className = "col-1 from-control " > unique code: < input type = "text" id="code"
-        className = "form-control my-2"
+        div className = "col-1 from-control " > unique code: < input readOnly={false} type = "text" id="code"
+        className = "form-control my-2" 
+        //  value={params.id && users.length>0? newindividual[0].code:""}
         onChange = {
             (event) => { setnewcode(event.target.value) }
         }
-        // value={params.id? users[0].code:""}
+         
         / >
         <
         /div>  <
@@ -230,6 +265,7 @@ return ;
 
         <
         div className = "col-2 " > Sex < select className = "form-select my-2" id="sex"
+        value={params.id && newindividual.length>0? newindividual[0].sex:""}
         onChange = {
             (event) => { setnewsex(event.target.value) }
         } >
@@ -268,7 +304,7 @@ return ;
         div className = "row" >
         <
         div className = "col" > < /div> <
-        div className = "col-2 from-control " > Appointment date < input type = "date"name="date" placeholder="DD-MM-YYYY" format="DD-MM-YYYY"
+        div className = "col-2 from-control " > Appointment date < input type = "date"name="date" placeholder="dd-mm-yyyy" format="DD-MM-YYYY"
         id="appointment"className = "form-control my-2" onChange = {
             (event) => { setnewappointment(event.target.value) }
         }/ >
@@ -286,6 +322,7 @@ return ;
         <
         /div><
         div className = "col-3 " > Appointment status < select className = "form-select my-2" id="appointment"
+        value={params.id && newindividual.length>0? newindividual[0].status:""}
         onChange = {
             (event) => { setnewstatus(event.target.value) }
         } >
@@ -298,6 +335,7 @@ return ;
         div > <
         div className = "col-2  " > Appointment time < input type = "time" id="time"
         className = "form-control my-2 " 
+        
         onChange = {
             (event) => { setnewtime(event.target.value) }
         }/ > < /div><
