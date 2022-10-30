@@ -205,8 +205,7 @@ return ;
     }
     return ( <
         >
-        <
-        div className = " background" >
+        <div className = " background" >
         <
         div className = 'full' >
         <
